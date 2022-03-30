@@ -2,11 +2,14 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Input } from 'element-ui'
+import element from './element/index'
+import axios from 'axios'
 
-Vue.prototype.$ELEMENT = { size: 'default', zIndex: 3000 }
-Vue.use(Input)
+axios.defaults.baseURL = 'http://127.0.0.1:3000'
+
+Vue.use(element)
 Vue.config.productionTip = false
+Vue.prototype.$http = axios
 
 new Vue({
   router,
